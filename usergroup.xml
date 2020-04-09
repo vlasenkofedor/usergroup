@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="user" method="upgrade">
+    <name>plg_user_usergroup</name>
+    <author>Fedor Vlasenko</author>
+    <creationDate>31.07.2013</creationDate>
+    <copyright>© 2013. All rights reserved.</copyright>
+    <license>GNU/GPL v.3 or later.</license>
+    <authorEmail>vladsenkofedor@mail.ru</authorEmail>
+    <authorUrl>fregate.org.ua</authorUrl>
+    <version>1.1</version>
+    <description>PLG_USERGROUP_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="usergroup">usergroup.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_user_usergroup.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_user_usergroup.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_user_usergroup.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_user_usergroup.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" label="PLG_USERGROUP_NAME_EXTENDED_LABEL">
+                <field name="groups" type="usergroup"
+                       label="PLG_USERGROUP_FIELD_NAME_FORMS_LABEL"
+                       description="PLG_USERGROUP_FIELD_NAME_FORMS_DESC"
+                       multiple="true"
+                        size="20"/>
+                <field name="del_groups" type="radio" class="btn-group" default="0"
+                       label="PLG_USERGROUP_FIELD_DEL_GROUPS_LABEL"
+                       description="PLG_USERGROUP_FIELD_DEL_GROUPS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="del_name" type="radio" class="btn-group" default="0"
+                       label="PLG_USERGROUP_FIELD_DEL_NAME_LABEL"
+                       description="PLG_USERGROUP_FIELD_DEL_NAME_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="del_username" type="radio" class="btn-group" default="0"
+                       label="PLG_USERGROUP_FIELD_DEL_USERNAME_LABEL"
+                       description="PLG_USERGROUP_FIELD_DEL_USERNAME_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="del_password1" type="radio" class="btn-group" default="0"
+                       label="PLG_USERGROUP_FIELD_DEL_PASSWORD1_LABEL"
+                       description="PLG_USERGROUP_FIELD_DEL_PASSWORD1_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1"
+                            onclick="document.getElementById('jform_params_del_password21').click();">
+                        JYES
+                    </option>
+                </field>
+                <field name="del_password2" type="radio" class="btn-group" default="0"
+                       label="PLG_USERGROUP_FIELD_DEL_PASSWORD2_LABEL"
+                       description="PLG_USERGROUP_FIELD_DEL_PASSWORD1_DESC">
+                    <option value="0"
+                            onclick="if(document.getElementById('jform_params_del_password11').checked) return false;">
+                        JNO
+                    </option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="del_email2" type="radio" class="btn-group" default="0"
+                       label="PLG_USERGROUP_FIELD_DEL_EMAIL2_LABEL"
+                       description="PLG_USERGROUP_FIELD_DEL_EMAIL2_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="pass_length" type="integer"
+                       default="8"
+                       label="PLG_USERGROUP_FIELD_PASS_LENGTH_LABEL"
+                       description="PLG_USERGROUP_FIELD_PASS_LENGTH_DESC"
+                       first="6" last="15" step="1"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
