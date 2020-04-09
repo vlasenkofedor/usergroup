@@ -2,8 +2,8 @@
 /**
  * UserGroup
  *
- * @version        1.0
- * @author         Fedor Vlasenko vladsenkofedor@mail.ru
+ * @version        1.1
+ * @author         Fedor Vlasenko vladsenkofedor@gmail.com
  * @url            fregate.org.ua
  * @copyright      © 2013. All rights reserved.
  * @license        GNU/GPL v.3 or later.
@@ -24,7 +24,7 @@ class plgUserUserGroup extends JPlugin
     private $del_password2;
     private $del_email2;
 
-    public function __construct(& $subject, $config)
+    public function __construct(&$subject, $config)
     {
         parent::__construct($subject, $config);
         $this->loadLanguage();
@@ -49,10 +49,10 @@ class plgUserUserGroup extends JPlugin
 
         $app = JFactory::getApplication();
         $temp = $app->input->get('jform', array(), 'array', 'post');
-        
-        if (isset($temp['password1'])){
-             $data->password1 = $temp['password1'];
-         }
+
+        if (isset($temp['password1'])) {
+            $data->password1 = $temp['password1'];
+        }
 
         if (empty($temp['email1'])) {
             return true;
@@ -67,8 +67,7 @@ class plgUserUserGroup extends JPlugin
         }
 
         if ($this->del_name) {
-            $name = explode('@', $data->email1);
-            $data->name = $name[0];
+            $data->name = explode('@', $data->email1)[0];
         }
 
         if ($this->del_username) {
@@ -78,7 +77,7 @@ class plgUserUserGroup extends JPlugin
         if (isset($temp['usergroup']) && in_array($temp['usergroup'], $this->groups)) {
             $data->groups = array($temp['usergroup']);
         } else {
-           $data->groups = array($this->def_groups);
+            $data->groups = array($this->def_groups);
         }
 
         if ($this->del_password1) {
@@ -89,7 +88,6 @@ class plgUserUserGroup extends JPlugin
             $data->password2 = $data->password1;
         }
 
-        //die(var_dump($data));
 
         return true;
     }
@@ -120,7 +118,7 @@ class plgUserUserGroup extends JPlugin
 
         if ($this->del_password2) {
             $form->removeField('password2');
-            $form->setFieldAttribute('password1', 'validate',null, null);
+            $form->setFieldAttribute('password1', 'validate', null, null);
         }
 
         if ($this->del_email2) {
