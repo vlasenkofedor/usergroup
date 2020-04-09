@@ -14,4 +14,5 @@ Main options:
 
 In the minimal version, only the email field remains. The plugin works with a standard registration form.
 
+
 [Download plugin](https://github.com/vlasenkofedor/usergroup/archive/master.zip)
